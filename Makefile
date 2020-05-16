@@ -1,8 +1,14 @@
-all: src/main/c/client/file_upload_client.c src/main/c/server/file_upload_server.c
-	gcc -o output/client src/main/c/client/file_upload_client.c 
-	gcc -o output/server src/main/c/server/file_upload_server.c
-client: src/main/c/client/file_upload_client.c
-	gcc -o output/client src/main/c/client/file_upload_client.c 
-server: src/main/c/server/file_upload_server.c
-	gcc -o output/server src/main/c/server/file_upload_server.c
+out_client = output/client
+out_server = output/server
+main_client = src/main/c/client/file_upload_client.c
+main_server = src/main/c/server/file_upload_server.c
+
+all: client server
+
+client: ${main_client}
+	gcc -o ${out_client} ${main_client}
+
+
+server: ${main_server}
+	gcc -o ${out_server} ${main_server}
 
